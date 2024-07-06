@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Outline Effect</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn {
+            font-family: "Roboto", sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            background: #1e90ff;
+            width: 160px;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition-duration: 0.3s;
+            transition-property: box-shadow, transform, outline;
+            position: relative;
+            outline: none;
+            margin-bottom: 20px; /* Add margin to separate the buttons */
+        }
+
+        @keyframes outlineAnimation {
+            0% {
+                outline: none;
+            }
+            100% {
+                outline: 2px solid black;
+                outline-offset: 0;
+            }
+        }
+
+        .btn:hover, .btn:focus, .btn:active {
+            box-shadow: 0 0 20px rgba(0, 128, 0, 0.5);
+            transform: scale(1.1);
+            animation: outlineAnimation 0.3s forwards;
+        }
+
+        .btn-no-hover {
+            font-family: "Roboto", sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            background: #000000;
+            width: 160px;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="btn" id="button1">generate quote</div>
+    <div class="btn-no-hover" id="button2"></div>
+    <audio id="ROCK" src="ROCK.mp3"></audio>
+    <script>
+        document.getElementById('button1').addEventListener('click', function() {
+            const randomTexts = ["you're not a sigma.", "skibidi slicers", "baby gronk rizzes up livvy dunne", "sussy baka", "w/l rizz chat"];
+            const randomText = randomTexts[Math.floor(Math.random() * randomTexts.length)];
+            document.getElementById('button2').textContent = randomText;
+            var audio = document.getElementById('ROCK');
+            audio.play();
+        });
+    </script>
+</body>
+</html>
